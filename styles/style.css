@@ -168,9 +168,12 @@
   border-block-start: 2px solid var(--text-color, #000000);
 }
 
+/* Не знаю почему у Вас по другому, но у меня текст и высота 
+строки сходилась с макетом. Я дополнительно добавлю line-height в этом селекторе*/
+
 .text-item {
   font-size: 18px;
-  font-variation-settings: "wght" var(--main-font-weight-content, 400);
+  line-height: 21px;
 }
 
 .card-animation {
@@ -269,30 +272,35 @@
 }
 
 .dialog {
-  max-inline-size: clamp(341px, calc(100vw * (357 / 1440)), 357px);
-  padding: 30px;
+  max-inline-size: 355px;
+  padding: 25px 30px;
   font-family: var(--accent-font-family, "PressStart2P", fantasy);
   color: var(--text-color, #000000);
   border: 2px solid var(--text-color, #000000);
   background-color: var(--global-background-color, #ffffff);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 21px;
   text-transform: uppercase;
+}
+/*Добавил [open] чтобы поменять свойство display*/
+.dialog[open] {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  gap: 30px;
 }
 
 .dialog::backdrop {
   background-color: rgb(0 0 0/ 0.75);
 }
 
-.dialog[open] .dialog-content {
-  display: grid;
-  grid-template-columns: repeat(2, min-content);
+ .dialog-content {
+  display: flex;
   align-items: center;
-  margin-bottom: 30px;
-  gap: 20px;
+  gap: 16px;
 }
 
 .floppy-dialog {
+  flex-shrink: 0;
   inline-size: 39px;
   block-size: 39px;
 }
@@ -300,7 +308,7 @@
 .dialog__button {
   inline-size: 100%;
   block-size: 38px;
-  text-transform: inherit;
+  text-transform: uppercase;
 }
 
 .filter-sepia {
@@ -346,8 +354,8 @@
   }
 
   .dialog {
-    max-inline-size: 341px;
-    padding-inline: 42px;
+    max-inline-size: 340px;
+    padding: 28px 34px 28px 40px;
   }
 }
 
